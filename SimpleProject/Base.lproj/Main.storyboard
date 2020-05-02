@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-cf-PyX">
+                                <rect key="frame" x="99.5" y="339.5" width="215.5" height="227"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Попробуйте угадать число" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuL-qp-VpV">
+                                        <rect key="frame" x="0.0" y="0.0" width="215.5" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="5vK-eR-wdd"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="173" id="r1n-Dt-xJk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше число" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-mE-jIR">
+                                        <rect key="frame" x="57" y="98" width="101.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uws-FN-6Qp">
+                                        <rect key="frame" x="31.5" y="188" width="152" height="39"/>
+                                        <color key="backgroundColor" red="0.94751862050000002" green="0.38763182709999999" blue="0.33237882489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="Arj-HH-M5u"/>
+                                            <constraint firstAttribute="height" constant="39" id="y88-jw-ZxN"/>
+                                        </constraints>
+                                        <state key="normal" title="ПОПЫТКА №"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИГРА &quot;УГАДАЙ ЧИСЛО&quot;                         ДЛЯ НАЧАЛА ИГРЫ ДВАЖДЫ НАЖМИТЕ НА ЭКРАН" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOQ-u9-wuA">
+                                <rect key="frame" x="61" y="133" width="292" height="104"/>
+                                <color key="backgroundColor" red="0.94751862050000002" green="0.38763182709999999" blue="0.33237882489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="Kqt-Kx-3Qp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50137186440000003" green="0.76374758949999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pOQ-u9-wuA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="61" id="2Ol-S4-9Fn"/>
+                            <constraint firstItem="pOQ-u9-wuA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="5vi-Tm-Bw2"/>
+                            <constraint firstItem="pOQ-u9-wuA" firstAttribute="centerX" secondItem="uGU-cf-PyX" secondAttribute="centerX" id="OFB-Ct-Ef9"/>
+                            <constraint firstItem="uGU-cf-PyX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QQ1-pH-5nX"/>
+                            <constraint firstItem="uGU-cf-PyX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="doI-ec-8xm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn" destination="uws-FN-6Qp" id="SUE-8i-gsG"/>
+                        <outlet property="lbl" destination="RuL-qp-VpV" id="nbx-sg-Gff"/>
+                        <outlet property="stackView" destination="uGU-cf-PyX" id="F4F-JG-9x4"/>
+                        <outlet property="txt" destination="Yui-mE-jIR" id="UGn-Yu-bg5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="26.785714285714285"/>
+        </scene>
+    </scenes>
+</document>
