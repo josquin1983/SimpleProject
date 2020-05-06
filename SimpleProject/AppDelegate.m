@@ -21,12 +21,6 @@
     // Override point for customization after application launch.
     
     
-    _window = [[UIScreen mainScreen]];
-    
-    _window.rootViewController = [[ViewController alloc] init];
-    
-    [_window makeKeyWindow];
-    
     
     return YES;
 }

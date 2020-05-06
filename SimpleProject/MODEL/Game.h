@@ -14,7 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property unsigned number;
 
+@property unsigned tries;
+
 -(Game*)init;
+
+-(void)incTry;
 
 @end
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,49 +13,53 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-cf-PyX">
-                                <rect key="frame" x="99.5" y="339.5" width="215.5" height="227"/>
+                                <rect key="frame" x="10" y="337.5" width="394" height="231"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Попробуйте угадать число" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuL-qp-VpV">
-                                        <rect key="frame" x="0.0" y="0.0" width="215.5" height="37"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ДЛЯ НАЧАЛА ИГРЫ ДВАЖДЫ НАЖМИТЕ НА ЭКРАН" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuL-qp-VpV">
+                                        <rect key="frame" x="28" y="0.0" width="338" height="41"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="5vK-eR-wdd"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="173" id="r1n-Dt-xJk"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="r1n-Dt-xJk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше число" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-mE-jIR">
-                                        <rect key="frame" x="57" y="98" width="101.5" height="30"/>
+                                        <rect key="frame" x="146.5" y="101" width="101.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uws-FN-6Qp">
-                                        <rect key="frame" x="31.5" y="188" width="152" height="39"/>
-                                        <color key="backgroundColor" red="0.94751862050000002" green="0.38763182709999999" blue="0.33237882489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="121" y="192" width="152" height="39"/>
+                                        <color key="backgroundColor" red="0.4298890963" green="0.33472675039999999" blue="0.81673008420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="152" id="Arj-HH-M5u"/>
                                             <constraint firstAttribute="height" constant="39" id="y88-jw-ZxN"/>
                                         </constraints>
-                                        <state key="normal" title="ПОПЫТКА №"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wts-rk-luu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИГРА &quot;УГАДАЙ ЧИСЛО&quot;                         ДЛЯ НАЧАЛА ИГРЫ ДВАЖДЫ НАЖМИТЕ НА ЭКРАН" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOQ-u9-wuA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИГРА &quot;УГАДАЙ ЧИСЛО&quot;                         " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOQ-u9-wuA">
                                 <rect key="frame" x="61" y="133" width="292" height="104"/>
-                                <color key="backgroundColor" red="0.94751862050000002" green="0.38763182709999999" blue="0.33237882489999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.4298890963" green="0.33472675039999999" blue="0.81673008420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="Kqt-Kx-3Qp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -65,7 +69,9 @@
                             <constraint firstItem="pOQ-u9-wuA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="5vi-Tm-Bw2"/>
                             <constraint firstItem="pOQ-u9-wuA" firstAttribute="centerX" secondItem="uGU-cf-PyX" secondAttribute="centerX" id="OFB-Ct-Ef9"/>
                             <constraint firstItem="uGU-cf-PyX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QQ1-pH-5nX"/>
+                            <constraint firstAttribute="trailing" secondItem="uGU-cf-PyX" secondAttribute="trailing" constant="10" id="alY-hT-wcs"/>
                             <constraint firstItem="uGU-cf-PyX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="doI-ec-8xm"/>
+                            <constraint firstItem="uGU-cf-PyX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="pQl-QI-yvg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

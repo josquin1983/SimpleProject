@@ -8,6 +8,9 @@
 
 #import "Game.h"
 
+@interface Game()
+
+@end
 
 @implementation Game
 
@@ -17,9 +20,17 @@
         
         self.number = arc4random_uniform(20);
         
+        self.tries = 0;
+        
     }
     
     return self;
+    
+}
+
+- (void)incTry {
+    
+    self.tries++;
     
 }
 
