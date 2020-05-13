@@ -46,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				52DFAB8D245A2F9800D90BAA /* Main.storyboard */,
+				52DFAB92245A2FA000D90BAA /* LaunchScreen.storyboard */,
 			);
 			path = VIEW;
 			sourceTree = "<group>";
@@ -84,7 +85,6 @@
 				520E03A8246218950086A3C1 /* VIEW */,
 				520E03A9246218AB0086A3C1 /* CONTROLLER */,
 				52DFAB90245A2FA000D90BAA /* Assets.xcassets */,
-				52DFAB92245A2FA000D90BAA /* LaunchScreen.storyboard */,
 				52DFAB95245A2FA000D90BAA /* Info.plist */,
 				52DFAB96245A2FA000D90BAA /* main.m */,
 			);
@@ -324,7 +324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sberbank.SimpleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -341,7 +341,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sberbank.SimpleProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

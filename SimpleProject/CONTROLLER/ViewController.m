@@ -12,6 +12,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface ViewController ()
 
 #pragma mark: outlets
@@ -20,53 +22,86 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lbl;
 
-@property (weak, nonatomic) IBOutlet UITextField *txt;
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
-@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
 #pragma mark: props
 
 @property (strong, nonatomic) Game *game;
 
+@property (strong, nonatomic) NSArray *arr;
+
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipedown;
+
+@property (strong, nonatomic) UITapGestureRecognizer *tap;
+
 @end
 
 @implementation ViewController
 
+#pragma mark: picker's data source methods
+
+- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
+    
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    return [self.arr count];
+    
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    return  [NSString stringWithFormat: @"%@", self.arr[row]];
+    
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    [self.lbl setText: [NSString stringWithFormat: @"ВЫ ВЫБРАЛИ ЧИСЛО %@!", self.arr[row]]];
+    
+    [self.btn setHidden: NO];
+    
+}
+
+
+#pragma mark: IBAction
+
+
 - (IBAction)onButtonTapped:(UIButton *)sender {
     
-    unsigned result = [self.txt.text intValue];
     
-    if ([self.txt.text isEqualToString:@""]) {
-        
-        [self.lbl setText:@"ВЫ НЕ ВВЕЛИ ЧИСЛО!!!"];
-        
-    }
+    NSInteger selectedRow = [self.picker selectedRowInComponent: 0];
     
-    if (!result) {
+                       
+    if ((selectedRow + 1) == self.game.number) {
         
-        [self.lbl setText:@"ВЫ ВВЕЛИ НЕ ЧИСЛО!!!"];
+        [self.lbl setText: [NSString stringWithFormat: @"УРА! ПОБЕДА!!! ВЫ УГАДАЛИ ЧИСЛО ЗА %d ПОПЫТ%@. ДЛЯ НОВОЙ ИГРЫ СДЕЛАЙТЕ СВАЙП ВНИЗ.", self.game.tries, [self postfixAtNumber: self.game.tries]]];
         
-    }
-    
-    if (result == self.game.number) {
-
-         [self.lbl setText:@"УРА! ПОБЕДА!!! ДЛЯ ПРОДОЛЖЕНИЯ СДЕЛАЙТЕ СВАЙП ВНИЗ."];
+        [self.lbl setBackgroundColor: UIColor.purpleColor];
+        
+        [self.btn setHidden: YES];
+        
+        [self.picker setHidden: YES];
+        
+        [self.swipedown setEnabled: YES];
         
     } else {
         
-        [self.lbl setText:@"НЕ УГАДАЛИ!!!"];
+        [self.lbl setText: [NSString stringWithFormat:@"ПОПЫТКА №%d: НЕ УГАДАЛИ!!!", self.game.tries]];
         
         [self.game incTry];
         
-        self.btn.titleLabel.text = [NSString stringWithFormat:@"Попытка №%d", self.game.tries];
-        
     }
-    
     
     
 }
 
--(void)setup {
+#pragma mark: others
+
+-(void)setupNewGame {
     
     self.game = [[Game alloc] init];
     
@@ -74,24 +109,32 @@
     
     NSLog(@"%d", self.game.number);
     
+    [self.lbl setBackgroundColor: UIColor.clearColor];
+    
+    [self.swipedown setEnabled: NO];
+    
+    [self.tap setEnabled: NO];
+
     
 }
 
+
+
 -(void)showMessage {
     
-    [self setup];
-    
-    self.btn.titleLabel.text = [NSString stringWithFormat:@"Попытка №1"];
+    [self setupNewGame];
     
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message: @"ИГРА НАЧАЛАСЬ!" preferredStyle: UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        [self.btn setEnabled: YES];
+         [self.picker setHidden: NO];
         
-        [self.txt setEnabled: YES];
+        [self.picker selectRow: 0 inComponent: 0 animated: YES];
         
-        [self.lbl setText: @"ВВЕДИТЕ ЧИСЛО ОТ 1 ДО 20"];
+        [self.lbl setText: [NSString stringWithFormat: @"ВЫ ВЫБРАЛИ ЧИСЛО %@!", @1]];
+        
+        [self.lbl setText: @"ВЫБЕРИТЕ ЧИСЛО ОТ 1 ДО 15"];
         
     }];
     
@@ -99,36 +142,69 @@
     
     [self presentViewController: alert animated: YES completion: nil];
     
+}
+
+-(NSString*)postfixAtNumber: (NSInteger) num {
+    
+    switch (num) {
+        case 1:
+            return @"КУ";
+            break;
+            
+        case 2:
+        case 3:
+        case 4:
+            return @"КИ";
+            break;
+            
+        default:
+            return @"ОК";
+            break;
+    }
+    
     
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-
-    self.btn.layer.cornerRadius = self.btn.frame.size.height / 3;
     
-    [self.btn setEnabled: NO];
+    // literal's array
     
-    [self.txt setEnabled: NO];
+   self.arr = @[@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15];
+    
+    // picker's datasource & delegate
+    
+    self.picker.dataSource = self;
+    
+    self.picker.delegate = self;
+    
+    // array initialization
+    
+    self.btn.layer.cornerRadius = self.btn.frame.size.height / 4;
+    
+    [self.btn setHidden: YES];
+    
+    [self.picker setHidden: YES];
     
     // tap gesture
     
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMessage)];
-                                                                                                        
-    tap.numberOfTapsRequired = 2;
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(showMessage)];
     
-    [self.view addGestureRecognizer: tap];
+    self.tap.numberOfTapsRequired = 2;
+    
+    [self.view addGestureRecognizer: self.tap];
     
     // swipe gestrure
     
-    UISwipeGestureRecognizer *swipdown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showMessage)];
+    self.swipedown = [[UISwipeGestureRecognizer alloc] initWithTarget: self action:@selector(showMessage)];
     
-    swipdown.direction = UISwipeGestureRecognizerDirectionDown;
+    self.swipedown.direction = UISwipeGestureRecognizerDirectionDown;
     
-    [self.view addGestureRecognizer:swipdown];
+    [self.view addGestureRecognizer: self.swipedown];
     
 }
+
 
 
 @end

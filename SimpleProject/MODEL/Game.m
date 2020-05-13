@@ -18,7 +18,7 @@
     
     if (self = [super init]) {
         
-        self.number = arc4random_uniform(20);
+        self.number = arc4random_uniform(15);
         
         self.tries = 0;
         
