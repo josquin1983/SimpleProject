@@ -48,13 +48,13 @@
     
 }
 
+#pragma mark: picker's delegate methods
+
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
     return  [NSString stringWithFormat: @"%@", self.arr[row]];
     
 }
-
-#pragma mark: picker's delegate method
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
