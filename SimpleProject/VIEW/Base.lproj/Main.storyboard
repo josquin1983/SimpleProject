@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="vc" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИГРА &quot;УГАДАЙ ЧИСЛО&quot;                         " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOQ-u9-wuA">
-                                <rect key="frame" x="63" y="54" width="288" height="61"/>
+                                <rect key="frame" x="63" y="30" width="288" height="61"/>
                                 <color key="backgroundColor" red="0.29018873699999997" green="0.56099665160000001" blue="0.32443178049999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="CUM-OX-hO6"/>
@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xbt-3O-alv">
-                                <rect key="frame" x="57" y="165" width="300" height="209"/>
+                                <rect key="frame" x="57" y="141" width="300" height="209"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ДЛЯ НАЧАЛА СДЕЛАЙТЕ ДВОЙНОЙ КЛИК ПО ЭКРАНУ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLm-13-iys">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="83"/>
@@ -58,7 +58,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uws-FN-6Qp">
-                                <rect key="frame" x="56" y="775" width="302" height="45"/>
+                                <rect key="frame" x="56" y="649" width="302" height="45"/>
                                 <color key="backgroundColor" red="0.099127862440504477" green="0.49870466321243523" blue="0.14520086800211285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="302" id="Ri3-fA-iTg"/>
@@ -85,6 +85,8 @@
                     </view>
                     <connections>
                         <outlet property="btn" destination="uws-FN-6Qp" id="SUE-8i-gsG"/>
+                        <outlet property="lbl" destination="oLm-13-iys" id="cVe-HX-7kg"/>
+                        <outlet property="picker" destination="PFI-XL-S9v" id="uCO-z7-LwF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

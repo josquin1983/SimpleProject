@@ -1,10 +1,6 @@
-//
-//  ViewController.m
-//  SimpleProject
-//
-//  Created by MacBook Pro on 30.04.2020.
+
 //  Copyright © 2020 MacBook Pro. All rights reserved.
-//
+
 
 #import "ViewController.h"
 
@@ -57,6 +53,8 @@
     return  [NSString stringWithFormat: @"%@", self.arr[row]];
     
 }
+
+#pragma mark: picker's delegate method
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
@@ -149,45 +147,28 @@
     switch (num) {
         case 1:
             return @"КУ";
+            
             break;
             
         case 2:
         case 3:
         case 4:
             return @"КИ";
+            
             break;
             
         default:
             return @"ОК";
+            
             break;
     }
     
     
 }
 
-- (void)viewDidLoad {
+- (void)setupGestures {
     
-    [super viewDidLoad];
-    
-    // literal's array
-    
-   self.arr = @[@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15];
-    
-    // picker's datasource & delegate
-    
-    self.picker.dataSource = self;
-    
-    self.picker.delegate = self;
-    
-    // array initialization
-    
-    self.btn.layer.cornerRadius = self.btn.frame.size.height / 4;
-    
-    [self.btn setHidden: YES];
-    
-    [self.picker setHidden: YES];
-    
-    // tap gesture
+    //tap gesture
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(showMessage)];
     
@@ -202,6 +183,35 @@
     self.swipedown.direction = UISwipeGestureRecognizerDirectionDown;
     
     [self.view addGestureRecognizer: self.swipedown];
+}
+
+#pragma mark: viewDidLoad method
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    // literal's array
+    
+   self.arr = @[@1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15];
+    
+    // setting up picker's datasource & delegate
+    
+    self.picker.dataSource = self;
+    
+    self.picker.delegate = self;
+    
+    // outlets configuration
+    
+    self.btn.layer.cornerRadius = self.btn.frame.size.height / 4;
+    
+    [self.btn setHidden: YES];
+    
+    [self.picker setHidden: YES];
+    
+    // gestures
+    
+    [self setupGestures];
     
 }
 
